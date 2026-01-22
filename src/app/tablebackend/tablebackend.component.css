@@ -1,0 +1,17 @@
+.container.mt-4.mb-5 .card {
+    border: none;
+    box-shadow: none;
+}
+
+::ng-deep .ant-table {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+::ng-deep .ant-table-tbody > tr > td {
+    border-bottom: 1px solid #dee2e6 ;
+    border-right: 1px solid #dee2e6 ;
+    padding: 10px 8px ;
+}
+
