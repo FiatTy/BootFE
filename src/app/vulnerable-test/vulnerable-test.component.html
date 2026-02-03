@@ -2,9 +2,29 @@
   <h4>Vulnerable XSS Test</h4>
   <input [(ngModel)]="userInput" placeholder="Enter HTML / script here" class="form-control mb-2" />
   <button class="btn btn-primary mb-2" (click)="show()">Render (bypass sanitizer)</button>
+  <button class="btn btn-warning mb-2 ms-2" (click)="unsafeEval()">Run eval(userInput)</button>
+  <button class="btn btn-danger mb-2 ms-2" (click)="unsafeDOMAssign()">Assign to innerHTML</button>
+  <div class="mt-2">
+    <button class="btn btn-secondary mb-2 me-2" (click)="unsafeNewFunction()">new Function(userInput)</button>
+    <button class="btn btn-secondary mb-2 me-2" (click)="unsafeDocumentWrite()">document.write(userInput)</button>
+    <button class="btn btn-secondary mb-2 me-2" (click)="storeSecretInLocalStorage()">Store secret in localStorage</button>
+    <button class="btn btn-secondary mb-2 me-2" (click)="generatePredictableToken()">Generate predictable token</button>
+    <button class="btn btn-secondary mb-2 me-2" (click)="openUnvalidatedUrl()">Open user URL</button>
+    <button class="btn btn-secondary mb-2 me-2" (click)="fetchWithCredentialsInUrl()">Fetch with token in URL</button>
+  </div>
 
   <div class="card p-2 mt-2">
     <label>Rendered output (uses [innerHTML]):</label>
     <div [innerHTML]="trustedHtml"></div>
   </div>
+    <div class="card p-2 mt-2">
+      <label>Direct DOM assignment target:</label>
+      <div id="unsafe-dom-target" class="border p-2">(target)</div>
+    </div>
+    <div class="card p-2 mt-2">
+      <label>Predictable token (Math.random):</label>
+      <div class="p-2">{{ lastToken || '(none yet)' }}</div>
+      <label>Stored secret (localStorage):</label>
+      <div class="p-2">{{ storedSecret || '(none yet)' }}</div>
+    </div>
 </div>
