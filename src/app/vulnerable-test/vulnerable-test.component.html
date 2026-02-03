@@ -1,0 +1,10 @@
+<div class="p-2">
+  <h4>Vulnerable XSS Test</h4>
+  <input [(ngModel)]="userInput" placeholder="Enter HTML / script here" class="form-control mb-2" />
+  <button class="btn btn-primary mb-2" (click)="show()">Render (bypass sanitizer)</button>
+
+  <div class="card p-2 mt-2">
+    <label>Rendered output (uses [innerHTML]):</label>
+    <div [innerHTML]="trustedHtml"></div>
+  </div>
+</div>

@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TableComponent } from './table/table.component';
 import { TablebackendComponent } from './tablebackend/tablebackend.component';
+import { VulnerableTestComponent } from './vulnerable-test/vulnerable-test.component';
+import { MemoryLeakComponent } from './memory-leak/memory-leak.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,9 @@ import { TablebackendComponent } from './tablebackend/tablebackend.component';
     NavbarComponent,
     TableComponent,
     TablebackendComponent
+    ,
+    VulnerableTestComponent,
+    MemoryLeakComponent
   ],
   imports: [
     BrowserModule,
